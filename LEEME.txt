@@ -1,0 +1,24 @@
+EPK RENATO BIBOLOTTI - LISTO PARA GITHUB PAGES
+
+Contenido:
+- index.html: página principal.
+- assets/: las seis páginas visuales optimizadas.
+- epk-renato-bibolotti.pdf: PDF optimizado y descargable.
+
+SUBIDA DESDE LA WEB DE GITHUB
+1. Abre tu repositorio.
+2. Pulsa Add file > Upload files.
+3. Arrastra index.html, epk-renato-bibolotti.pdf, LEEME.txt y la carpeta assets completa.
+4. Pulsa Commit changes.
+5. Ve a Settings > Pages.
+6. Selecciona Deploy from a branch, main y /(root).
+
+La web tendrá menos de 10 archivos y ningún archivo supera 25 MB.
+El enlace principal será:
+https://TUUSUARIO.github.io/TU-REPOSITORIO/
+
+El PDF directo será:
+https://TUUSUARIO.github.io/TU-REPOSITORIO/epk-renato-bibolotti.pdf
+
+IMPORTANTE
+Mantén la carpeta assets al lado de index.html y no cambies los nombres de los archivos.

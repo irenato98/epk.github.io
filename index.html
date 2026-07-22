@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090806">
+  <meta name="description" content="EPK oficial de Renato Bibolotti, baterista y percusionista.">
+  <title>Renato Bibolotti | EPK</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --page-ratio: 841 / 595;
+      --cyan: #49b9d4;
+      --ink: #090806;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      background: var(--ink);
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 50% 25%, #201d18 0, var(--ink) 58%),
+        var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .slide {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      position: relative;
+      padding: 0;
+    }
+
+    .page {
+      position: relative;
+      width: min(100vw, calc(100vh * 841 / 595));
+      width: min(100vw, calc(100svh * 841 / 595));
+      aspect-ratio: var(--page-ratio);
+      background: #111;
+      overflow: hidden;
+      box-shadow: 0 0 45px rgb(0 0 0 / .42);
+    }
+
+    .page > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .hotspot {
+      position: absolute;
+      display: block;
+      border-radius: .4rem;
+      outline: 0 solid transparent;
+      transition: background-color .18s ease, box-shadow .18s ease, outline-color .18s ease;
+    }
+
+    .hotspot:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 3px;
+      box-shadow: 0 0 0 6px rgb(73 185 212 / .75);
+    }
+
+    .hotspot.video:hover,
+    .hotspot.video:focus-visible {
+      background: rgb(73 185 212 / .12);
+      box-shadow: inset 0 0 0 3px rgb(73 185 212 / .8);
+    }
+
+    .hotspot.video::after {
+      content: "▶";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      translate: -50% -50%;
+      display: grid;
+      place-items: center;
+      width: clamp(2rem, 5vw, 4rem);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      color: white;
+      background: rgb(0 0 0 / .72);
+      font-size: clamp(.9rem, 2vw, 1.5rem);
+      opacity: 0;
+      transition: opacity .18s ease, transform .18s ease;
+      transform: scale(.9);
+      pointer-events: none;
+    }
+
+    .hotspot.video:hover::after,
+    .hotspot.video:focus-visible::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .contact-link:hover,
+    .contact-link:focus-visible {
+      background: rgb(73 185 212 / .13);
+      box-shadow: inset 0 -3px 0 var(--cyan);
+    }
+
+    .toolbar {
+      position: fixed;
+      z-index: 20;
+      top: max(12px, env(safe-area-inset-top));
+      right: max(12px, env(safe-area-inset-right));
+      display: flex;
+      gap: 8px;
+      opacity: .55;
+      transition: opacity .2s ease;
+    }
+
+    .toolbar:hover,
+    .toolbar:focus-within { opacity: 1; }
+
+    .toolbar a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid rgb(255 255 255 / .25);
+      border-radius: 999px;
+      color: white;
+      background: rgb(0 0 0 / .66);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+
+    .toolbar a:hover,
+    .toolbar a:focus-visible {
+      border-color: var(--cyan);
+      background: rgb(0 0 0 / .9);
+      outline: none;
+    }
+
+    .dots {
+      position: fixed;
+      z-index: 20;
+      right: max(10px, env(safe-area-inset-right));
+      top: 50%;
+      translate: 0 -50%;
+      display: grid;
+      gap: 9px;
+      padding: 10px 7px;
+      border-radius: 999px;
+      background: rgb(0 0 0 / .26);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .dots a {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgb(255 255 255 / .38);
+      box-shadow: 0 0 0 1px rgb(0 0 0 / .35);
+      transition: scale .18s ease, background-color .18s ease;
+    }
+
+    .dots a[aria-current="true"] {
+      background: var(--cyan);
+      scale: 1.45;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 700px) {
+      html { scroll-snap-type: y proximity; }
+      .dots { right: 4px; gap: 7px; padding: 8px 5px; }
+      .dots a { width: 7px; height: 7px; }
+      .toolbar { top: max(8px, env(safe-area-inset-top)); right: max(8px, env(safe-area-inset-right)); }
+      .toolbar a { min-width: 40px; min-height: 34px; padding-inline: 10px; font-size: 11px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="toolbar" aria-label="Opciones del EPK">
+    <a href="epk-renato-bibolotti.pdf" target="_blank" rel="noopener" aria-label="Abrir versión PDF">PDF</a>
+    <a href="epk-renato-bibolotti.pdf" download aria-label="Descargar el EPK en PDF">↓</a>
+  </nav>
+
+  <nav class="dots" aria-label="Páginas del EPK">
+    <a href="#pagina-1" aria-label="Ir a la página 1" aria-current="true"></a>
+    <a href="#pagina-2" aria-label="Ir a la página 2"></a>
+    <a href="#pagina-3" aria-label="Ir a la página 3"></a>
+    <a href="#pagina-4" aria-label="Ir a la página 4"></a>
+    <a href="#pagina-5" aria-label="Ir a la página 5"></a>
+    <a href="#pagina-6" aria-label="Ir a la página 6"></a>
+  </nav>
+
+  <main>
+    <section class="slide" id="pagina-1" aria-label="Portada">
+      <div class="page">
+        <img src="assets/page-1.webp" width="1920" height="1359" alt="Renato Bibolotti tocando batería. Portada del EPK." fetchpriority="high">
+      </div>
+    </section>
+
+    <section class="slide" id="pagina-2" aria-label="Live Performance">
+      <div class="page">
+        <img src="assets/page-2.webp" width="1920" height="1359" alt="Selección de videos de Renato Bibolotti tocando en vivo." loading="lazy">
+
+        <a class="hotspot video" style="left:30.44%;top:21.78%;width:43.85%;height:34.86%;" href="https://www.youtube.com/watch?v=rk9Wt1S_M_A" target="_blank" rel="noopener noreferrer" aria-label="Ver el video principal en YouTube"></a>
+        <a class="hotspot video" style="left:6.78%;top:64.18%;width:27.89%;height:22.17%;" href="https://www.youtube.com/watch?v=6V53y-wSsfw" target="_blank" rel="noopener noreferrer" aria-label="Ver video en vivo en YouTube"></a>
+        <a class="hotspot video" style="left:37.89%;top:63.76%;width:28.95%;height:23.02%;" href="https://www.youtube.com/watch?v=TgoQZyDCOCQ" target="_blank" rel="noopener noreferrer" aria-label="Ver video musical en YouTube"></a>
+        <a class="hotspot video" style="left:70.07%;top:62.12%;width:24.80%;height:26.29%;" href="https://www.youtube.com/watch?v=ehDp0Ka8bhw" target="_blank" rel="noopener noreferrer" aria-label="Ver presentación en vivo en YouTube"></a>
+      </div>
+    </section>
+
+    <section class="slide" id="pagina-3" aria-label="Galería fotográfica">
+      <div class="page">
+        <img src="assets/page-3.webp" width="1920" height="1359" alt="Collage de Renato Bibolotti tocando batería y posando frente a cámara." loading="lazy">
+      </div>
+    </section>
+
+    <section class="slide" id="pagina-4" aria-label="Biografía, primera parte">
+      <div class="page">
+        <img src="assets/page-4.webp" width="1920" height="1359" alt="Primera parte de la biografía de Renato Bibolotti." loading="lazy">
+      </div>
+    </section>
+
+    <section class="slide" id="pagina-5" aria-label="Biografía, segunda parte">
+      <div class="page">
+        <img src="assets/page-5.webp" width="1920" height="1359" alt="Segunda parte de la biografía, trayectoria y cifras de Renato Bibolotti." loading="lazy">
+      </div>
+    </section>
+
+    <section class="slide" id="pagina-6" aria-label="Contacto">
+      <div class="page">
+        <img src="assets/page-6.webp" width="1920" height="1359" alt="Contacto de Renato Bibolotti: correo, teléfono e Instagram." loading="lazy">
+
+        <a class="hotspot contact-link" style="left:39.0%;top:39.0%;width:37.0%;height:8.5%;" href="mailto:renabiboovie@hotmail.com" aria-label="Enviar correo a Renato Bibolotti"></a>
+        <a class="hotspot contact-link" style="left:39.0%;top:48.4%;width:27.0%;height:8.5%;" href="tel:+51907903082" aria-label="Llamar a Renato Bibolotti"></a>
+        <a class="hotspot contact-link" style="left:39.0%;top:57.3%;width:29.0%;height:8.5%;" href="https://www.instagram.com/sanbibolotti/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de Renato Bibolotti"></a>
+      </div>
+    </section>
+  </main>
+
+  <p class="sr-only">Usa las flechas del teclado o desliza para navegar entre las páginas.</p>
+
+  <script>
+    (() => {
+      const slides = [...document.querySelectorAll('.slide')];
+      const dots = [...document.querySelectorAll('.dots a')];
+      let current = 0;
+
+      const setCurrent = (index) => {
+        current = index;
+        dots.forEach((dot, i) => dot.setAttribute('aria-current', i === index ? 'true' : 'false'));
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        const index = slides.indexOf(visible.target);
+        if (index >= 0) setCurrent(index);
+      }, { threshold: [0.45, 0.6, 0.8] });
+
+      slides.forEach(slide => observer.observe(slide));
+
+      document.addEventListener('keydown', (event) => {
+        if (event.metaKey || event.ctrlKey || event.altKey) return;
+        if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+
+        const nextKeys = ['ArrowDown', 'ArrowRight', 'PageDown', ' '];
+        const prevKeys = ['ArrowUp', 'ArrowLeft', 'PageUp'];
+        let next = current;
+
+        if (nextKeys.includes(event.key)) next = Math.min(current + 1, slides.length - 1);
+        else if (prevKeys.includes(event.key)) next = Math.max(current - 1, 0);
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = slides.length - 1;
+        else return;
+
+        event.preventDefault();
+        slides[next].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    })();
+  </script>
+</body>
+</html>
