@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#11100f">
+
+  <title>Renato Bibolotti | Contact</title>
+  <meta name="description" content="Información de contacto de Renato Bibolotti.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_PE">
+  <meta property="og:url" content="https://rboarchives.com/contact/">
+  <meta property="og:site_name" content="Renato Bibolotti Archives">
+  <meta property="og:title" content="Renato Bibolotti | Contact">
+  <meta property="og:description" content="Información de contacto de Renato Bibolotti.">
+  <meta property="og:image" content="https://rboarchives.com/assets/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Renato Bibolotti | Contact">
+  <meta name="twitter:description" content="Información de contacto de Renato Bibolotti.">
+  <meta name="twitter:image" content="https://rboarchives.com/assets/social-preview.png">
+
+  <link rel="preload" as="image" href="assets/slide-7.webp" fetchpriority="high">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --accent: #4bb7d5;
+      --slide-ratio: 841 / 595;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      margin: 0;
+      background: #11100f;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      background: #11100f;
+    }
+
+    main {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    @media (min-width: 768px) {
+      main {
+        width: 141.3445vh;
+        max-width: 100%;
+      }
+    }
+
+    .slide {
+      position: relative;
+      width: 100%;
+      aspect-ratio: var(--slide-ratio);
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #11100f;
+      line-height: 0;
+    }
+
+    .slide-image {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      object-fit: fill;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .hotspot {
+      position: absolute;
+      z-index: 2;
+      display: block;
+      background: transparent;
+      border-radius: 10px;
+      line-height: normal;
+      cursor: pointer;
+      isolation: isolate;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .hotspot:focus-visible { outline: none; }
+
+    .contact-hotspot::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: -18% -2.5%;
+      border: 2px solid var(--accent);
+      border-radius: 9px;
+      background: rgba(24, 73, 84, 0.28);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+      opacity: 0;
+      transform: scale(0.985);
+      transition: opacity 150ms ease, transform 150ms ease;
+      pointer-events: none;
+    }
+
+    .contact-hotspot::after {
+      content: attr(data-icon);
+      position: absolute;
+      top: 50%;
+      right: -8%;
+      display: grid;
+      width: min(2.35vw, 34px);
+      min-width: 20px;
+      aspect-ratio: 1;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.72);
+      color: #fff;
+      font: 700 clamp(12px, 1.15vw, 18px)/1 Arial, sans-serif;
+      opacity: 0;
+      transform: translateY(-50%) scale(0.82);
+      transition: opacity 150ms ease, transform 150ms ease;
+      pointer-events: none;
+    }
+
+    .contact-hotspot:hover::before,
+    .contact-hotspot:focus-visible::before,
+    .contact-hotspot:active::before,
+    .contact-hotspot.is-interacting::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .contact-hotspot:hover::after,
+    .contact-hotspot:focus-visible::after,
+    .contact-hotspot:active::after,
+    .contact-hotspot.is-interacting::after {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+
+
+    /* Subrayado permanente, ajustado al ancho de cada dato de contacto. */
+    .contact-hotspot {
+      --contact-line-size: clamp(2px, 0.18vw, 3px);
+      background-image: linear-gradient(90deg, var(--accent), var(--accent));
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: 100% var(--contact-line-size);
+      transition:
+        background-size 160ms ease,
+        filter 160ms ease,
+        transform 160ms ease;
+    }
+
+    /* El mismo efecto luminoso del menú principal, también en toque y teclado. */
+    .contact-hotspot:hover,
+    .contact-hotspot:focus-visible,
+    .contact-hotspot:active,
+    .contact-hotspot.is-interacting {
+      background-size: 100% clamp(3px, 0.24vw, 4px);
+      filter:
+        drop-shadow(0 0 4px rgba(75, 183, 213, 0.95))
+        drop-shadow(0 0 8px rgba(75, 183, 213, 0.58));
+    }
+
+    .contact-hotspot:active,
+    .contact-hotspot.is-interacting {
+      transform: scale(0.985);
+    }
+
+    .contact-email { left: 38.10%; top: 38.50%; width: 32.05%; height: 5.25%; }
+    .contact-phone { left: 41.85%; top: 47.28%; width: 14.60%; height: 5.25%; }
+    .contact-instagram { left: 43.70%; top: 56.05%; width: 15.90%; height: 5.25%; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="slide" aria-label="Contacto de Renato Bibolotti">
+      <img class="slide-image" src="assets/slide-7.webp" width="1682" height="1190" alt="Contacto de Renato Bibolotti" fetchpriority="high">
+      <a class="hotspot contact-hotspot contact-email" data-icon="✉" href="mailto:renabiboovie@hotmail.com" aria-label="Enviar correo a renabiboovie@hotmail.com"></a>
+      <a class="hotspot contact-hotspot contact-phone" data-icon="☎" href="tel:+51907903082" aria-label="Llamar al 907 903 082"></a>
+      <a class="hotspot contact-hotspot contact-instagram" data-icon="↗" href="https://www.instagram.com/sanbibolotti/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de San Bibolotti"></a>
+    </section>
+  </main>
+
+  <script>
+    document.querySelectorAll('.hotspot').forEach((link) => {
+      link.addEventListener('pointerdown', () => {
+        link.classList.add('is-interacting');
+        window.setTimeout(() => link.classList.remove('is-interacting'), 700);
+      });
+    });
+  </script>
+</body>
+</html>
