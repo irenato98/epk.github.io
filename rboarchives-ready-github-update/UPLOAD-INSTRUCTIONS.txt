@@ -1,0 +1,19 @@
+READY FOR GITHUB PAGES
+
+Upload every item inside this ZIP to the ROOT of your GitHub repository:
+
+index.html
+style.css
+script.js
+CNAME
+assets/
+drummercareer/
+
+Routes:
+https://rboarchives.com/
+https://rboarchives.com/drummercareer/
+
+The SINGER-SONGWRITER CAREER button opens:
+https://hyperfollow.com/sanbibolotti
+
+BUSINESS PROJECTS is visually interactive but does not navigate yet.
