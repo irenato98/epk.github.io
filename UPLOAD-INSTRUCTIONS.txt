@@ -1,0 +1,26 @@
+LISTO PARA GITHUB PAGES
+
+Descomprime el ZIP y sube TODOS los elementos de esta carpeta a la RAÍZ del repositorio, reemplazando los archivos existentes. Conserva exactamente la estructura de carpetas.
+
+Rutas principales:
+https://rboarchives.com/
+https://rboarchives.com/drummercareer/
+https://rboarchives.com/contact/
+
+Incluye:
+- Hero original en loop y silencio.
+- Versión panorámica 1920 × 1080 para tablets y escritorio.
+- Versión vertical 1080 × 1920 únicamente para pantallas de hasta 768 px.
+- Live Performance con intercambio de videos, sonido y pantalla completa.
+- Studio Recordings con enlaces ajustados exactamente a las cuatro portadas.
+- Reproductor visual de SoundCloud en la estructura móvil.
+- Biografía separada en cuatro páginas en móvil.
+- Contacto responsive y centrado.
+
+Breakpoint responsive:
+- Hasta 768 px inclusive: estructura vertical 9:16.
+- Desde 769 px: estructura panorámica 16:9.
+
+No requiere instalación ni comando de compilación.
+
+Después de publicar, usa una recarga forzada o una pestaña privada para evitar que el navegador muestre la versión anterior desde la caché.
