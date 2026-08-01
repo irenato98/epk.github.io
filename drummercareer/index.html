@@ -960,8 +960,8 @@
       <div class="embed youtube-embed" id="youtube-video-container">
         <iframe
           id="youtube-player"
-          src="https://www.youtube-nocookie.com/embed/H-t0T68zU3g?autoplay=1&amp;mute=1&amp;playsinline=1&amp;controls=1&amp;enablejsapi=1&amp;rel=0&amp;origin=https%3A%2F%2Frboarchives.com"
-          title="Live Performance de Renato Bibolotti"
+          src="https://www.youtube-nocookie.com/embed/6V53y-wSsfw?autoplay=1&amp;mute=1&amp;playsinline=1&amp;controls=1&amp;enablejsapi=1&amp;rel=0&amp;origin=https%3A%2F%2Frboarchives.com"
+          title="Sr. Charlie – ZOMBIE | Villa El Salvarock 2019 (Re interpretación)"
           loading="eager"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
           referrerpolicy="strict-origin-when-cross-origin"
@@ -1022,9 +1022,15 @@
       </div>
 
       <button class="hotspot performance-selector performance-link-1" type="button"
-              data-video-id="6V53y-wSsfw"
-              aria-label="Reproducir el video de Buenazo en el reproductor principal"
-              disabled></button>
+              data-video-id="H-t0T68zU3g"
+              aria-label="Reproducir ZOMBIE Completo Desastre en el reproductor principal"
+              disabled>
+        <img
+          class="performance-thumb is-visible"
+          src="https://i.ytimg.com/vi/H-t0T68zU3g/hqdefault.jpg"
+          alt=""
+          aria-hidden="true">
+      </button>
       <button class="hotspot performance-selector performance-link-2" type="button"
               data-video-id="rk9Wt1S_M_A"
               aria-label="Reproducir el segundo video en el reproductor principal"
@@ -1208,7 +1214,7 @@
       const videoSelectors = [...document.querySelectorAll('.performance-selector[data-video-id]')];
       let youtubePlayer = null;
       let youtubePlayerIsReady = false;
-      let currentVideoId = 'H-t0T68zU3g';
+      let currentVideoId = '6V53y-wSsfw';
       let pendingVideoSelector = null;
 
       const updateAudioButton = (soundIsOn) => {
